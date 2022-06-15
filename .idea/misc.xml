@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.36875" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/drawable/ic_launcher_background.xml" value="0.36875" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/activity_data.xml" value="0.33" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/activity_group.xml" value="0.1" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/content_data.xml" value="0.25" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/content_group.xml" value="0.1953125" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/content_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/dialog_view_step.xml" value="0.17407407407407408" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/dialog_view_subgroup.xml" value="0.20989583333333334" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/fragment_add_group.xml" value="0.35" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/fragment_data.xml" value="0.22" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/fragment_device.xml" value="0.22" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/fragment_edit_group.xml" value="0.2764612954186414" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/fragment_first.xml" value="0.35260416666666666" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/fragment_first2.xml" value="0.17395833333333333" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/fragment_group.xml" value="0.19583333333333333" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/fragment_second.xml" value="0.35260416666666666" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/fragment_second2.xml" value="0.17395833333333333" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/fragment_subgroup.xml" value="0.25" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/list_item_data.xml" value="0.17291666666666666" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/list_item_device.xml" value="0.33" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/list_item_group.xml" value="0.8609375" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/list_item_subgroup.xml" value="0.19583333333333333" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/spinner_layout.xml" value="0.3314814814814815" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/step_view_dialog.xml" value="0.3446153846153846" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/view_dialog.xml" value="0.34717948717948716" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/menu/menu_main.xml" value="0.3645833333333333" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.36" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.36" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="jbr-11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

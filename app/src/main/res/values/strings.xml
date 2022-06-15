@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">TherapyApp</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="device_fragment_label">Устройства</string>
+    <string name="subgroup_fragment_label">Возбудители</string>
+    <string name="data_fragment_label">Данные о терапии</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="StopScan">Остановить</string>
+    <string name="Scan">Сканировать</string>
+    <string name="hello">Для поиска устройств нажмите на кнопку Bluetooth</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_data">DataActivity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_group">GroupActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="file_id_t">Признак формата</string>
+    <string name="file_id_q">4 символа</string>
+    <string name="file_id_e">Формат группы должен быть типа "EG**"</string>
+    <string name="title_t">Название группы</string>
+    <string name="title_q">Максимум 15 символов</string>
+    <string name="time_t">Общее время группы</string>
+    <string name="time_q">0 - 65535, 0 - бесконечно</string>
+    <string name="mode_t">Режим исполнения группы</string>
+    <string name="mode_q">0 = «Посл»,\n
+        1 = «Цикл»,\n
+        2 = «Компл».</string>
+    <string name="spre_t">Расширение спектра программ:</string>
+    <string name="spre_q">0 = «Выкл», 1 = «Вкл-1», 2 = «Вкл-2» </string>
+    <string name="maxf_t">Ограничение частоты, Гц:</string>
+    <string name="maxf_q">0 = «15к», 1 = «1100», 2 = «1200», 3 = «1500»</string>
+    <string name="cnt_t">Число шагов в группе</string>
+    <string name="cnt_q">0 – группа пуста </string>
+    <string name="type_t">Тип записи</string>
+    <string name="type_q">\n 0 – частота в диапазоне x1;\n
+        1 – частота в диапазоне x10;\n
+        2 – частота в диапазоне x100;\n
+        3 – частота в диапазоне x1000;\n
+        “f”,“d”,“m”,“p” – программа из справочника EB00 (см.)</string>
+    <string name="freq_id_t">Частота\nКод программы</string>
+    <string name="freq_id_q">Частота, 10..9999 * (диап)/100,Гц\n
+        Код программы в справочнике, 1.. </string>
+    <string name="freq_id_b">Справочник кодов</string>
+    <string name="ampl_t">Амплитуда</string>
+    <string name="ampl_q">0 – 100 </string>
+    <string name="step_time_t">Время шага</string>
+    <string name="step_time_q">0 – 65535  </string>
+    <string name="code_title">Справочник кодов</string>
+    <string name="edit_save">Сохранить изменения</string>
+    <string name="delete_group">Удалить группу</string>
+    <string name="edit_steps">Редактировать шаги</string>
+    <string name="add_group">Добавить группу</string>
+    <string name="del_group_alert">Удаление группы</string>
+    <string name="group_mes">Вы уверены?</string>
+    <string name="save_group_alert">Сохранение группы</string>
+    <string name="add_group_alert">Добавление группы</string>
+</resources>

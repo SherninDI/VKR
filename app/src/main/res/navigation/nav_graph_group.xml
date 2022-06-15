@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/GroupFragment">
+
+    <fragment
+            android:id="@+id/GroupFragment"
+            android:name="com.example.therapyapp.GroupFragment"
+            android:label="Группы"
+            tools:layout="@layout/fragment_group">
+
+        <action
+                android:id="@+id/action_GroupFragment_to_EditGroupFragment"
+                app:destination="@id/EditGroupFragment"/>
+        <action
+                android:id="@+id/action_GroupFragment_to_AddGroupFragment"
+                app:destination="@id/AddGroupFragment"/>
+    </fragment>
+    <fragment
+            android:id="@+id/EditGroupFragment"
+            android:name="com.example.therapyapp.EditGroupFragment"
+            android:label="Редактирование группы"
+            tools:layout="@layout/fragment_edit_group">
+
+        <action
+                android:id="@+id/action_EditGroupFragment_to_GroupFragment"
+                app:destination="@id/GroupFragment"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/AddGroupFragment"
+            android:name="com.example.therapyapp.AddGroupFragment"
+            android:label="Создание новой группы"
+            tools:layout="@layout/fragment_add_group">
+
+        <action
+                android:id="@+id/action_AddGroupFragment_to_GroupFragment"
+                app:destination="@id/GroupFragment"/>
+    </fragment>
+</navigation>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/groupFragment"
+        android:name="com.example.therapyapp.GroupFragment">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="300dp"
+                android:maxHeight="600dp"
+                android:id="@+id/groups_list"
+                app:layoutManager="LinearLayoutManager"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp" app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginBottom="20dp" app:layout_constraintBottom_toTopOf="@+id/linearButtons"
+                android:layout_marginStart="20dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="20dp" app:layout_constraintEnd_toEndOf="parent"/>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="240dp"
+                android:maxWidth="300dp"
+                android:id="@+id/linearButtons"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="0dp" app:layout_constraintTop_toBottomOf="@+id/groups_list"
+                android:layout_marginBottom="0dp"  app:layout_constraintBottom_toTopOf="@id/linearCancelButtons"
+                android:layout_marginStart="10dp"  app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="10dp"  app:layout_constraintEnd_toEndOf="parent"
+        >
+            <Button
+                    android:text="Добавить"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+
+                    android:id="@+id/add_button"
+                    android:layout_marginEnd="5dp" app:layout_constraintEnd_toStartOf="@+id/send_button"/>
+            <Button
+                    android:text="Отправить"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/send_button"
+                    android:gravity="center"
+                    android:layout_marginStart="5dp" app:layout_constraintStart_toEndOf="@+id/add_button"
+                    android:layout_marginEnd="5dp" app:layout_constraintEnd_toStartOf="@+id/receive_button"/>
+            <Button
+                    android:text="Получить"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/receive_button"
+                    android:gravity="center"
+                    android:layout_marginStart="5dp" app:layout_constraintStart_toEndOf="@+id/send_button"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="240dp"
+                android:maxWidth="300dp"
+                android:id="@+id/linearCancelButtons"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="0dp" app:layout_constraintTop_toBottomOf="@+id/linearButtons"
+                android:layout_marginBottom="30dp"  app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="10dp"  app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="10dp"  app:layout_constraintEnd_toEndOf="parent"
+        >
+            <Button
+                    android:text="Отменить"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:id="@+id/cancel_button"
+                    android:layout_marginStart="0dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginEnd="0dp" app:layout_constraintEnd_toStartOf="@id/reset_button"/>
+            <Button
+                    android:text="Сброс"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:id="@+id/reset_button"
+                    android:layout_marginStart="5dp" app:layout_constraintStart_toEndOf="@id/cancel_button"
+                    android:layout_marginEnd="5dp" app:layout_constraintEnd_toStartOf="@id/save_button"/>
+            <Button
+                    android:text="Сохранить"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:id="@+id/save_button"
+                    android:layout_marginStart="0dp" app:layout_constraintStart_toEndOf="@id/reset_button"
+                    android:layout_marginEnd="0dp" app:layout_constraintEnd_toEndOf="parent"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>
