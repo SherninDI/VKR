@@ -59,4 +59,6 @@
     <string name="group_mes">Вы уверены?</string>
     <string name="save_group_alert">Сохранение группы</string>
     <string name="add_group_alert">Добавление группы</string>
+    <string name="reset_alert">Уведомление</string>
+    <string name="reset_mes">После добавления или редактирования группы необходимо сбросить аппарат в исходное состояние</string>
 </resources>

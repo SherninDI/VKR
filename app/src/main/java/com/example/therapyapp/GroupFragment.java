@@ -1,9 +1,11 @@
 package com.example.therapyapp;
 
+import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.*;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -12,12 +14,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.navigation.fragment.NavHostFragment;
 import com.example.therapyapp.databinding.FragmentGroupBinding;
@@ -29,7 +33,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class GroupFragment extends Fragment {
-    private static String TAG = "Data Fragment";
+    private static String TAG = "GroupFragment";
     private String connectedDeviceName = null;
     private BluetoothConnectHandler bluetoothConnectHandler = null;
 
@@ -106,6 +110,22 @@ public class GroupFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+        builder.setTitle(R.string.reset_alert);
+        builder.setMessage(R.string.reset_mes)
+                .setCancelable(false)
+                .setNeutralButton("Ок", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alertDialog = builder.show();
+        TextView message = (TextView) alertDialog.findViewById(android.R.id.message);
+        message.setGravity(Gravity.CLIP_HORIZONTAL);
+        alertDialog.show();
 
         rvGroupList = getView().findViewById(R.id.groups_list);
         rvGroupList.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -235,6 +255,7 @@ public class GroupFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+
     }
 
     @Override
