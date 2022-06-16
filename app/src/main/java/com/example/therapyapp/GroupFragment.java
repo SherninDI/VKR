@@ -299,7 +299,7 @@ public class GroupFragment extends Fragment {
 
         return hex;
     }
-
+    // Функция отправки сообщения
     private void sendMessage(byte[] message) {
         // Check that we're actually connected before trying anything
         if (bluetoothConnectHandler.getState() != BluetoothConnectHandler.STATE_CONNECTED) {
