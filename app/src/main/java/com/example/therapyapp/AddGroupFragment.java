@@ -62,6 +62,7 @@ public class AddGroupFragment extends Fragment {
         databaseAdapter.openDataBase();
 
         GroupHelper groupHelper = new GroupHelper();
+        InputValidatorHelper inputValidatorHelper = new InputValidatorHelper();
 
         String sql = "SELECT * FROM groups";
         Cursor cursor = databaseAdapter.getData(sql);
@@ -85,7 +86,10 @@ public class AddGroupFragment extends Fragment {
         byte[] file_id = new byte[4];
         groupBuffer.get(file_id, 0, file_id.length);
         String fileId = new String(file_id, Charset.forName("windows-1251"));
-        editFileId.setText(fileId);
+        if (inputValidatorHelper.isValidFileId(fileId)) {
+            editFileId.setText(fileId);
+        }
+
 
         EditText editTitle = getView().findViewById(R.id.title_e);
         byte[] len = new byte[1];
@@ -413,7 +417,7 @@ public class AddGroupFragment extends Fragment {
                         dialogStep.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                InputValidatorHelper inputValidatorHelper = new InputValidatorHelper();
+
                                 ByteBuffer step = ByteBuffer.allocate(6);
                                 String editTypeStr = spinnerType.getSelectedItem().toString();
                                 byte[] editTypeBytes = editTypeStr.getBytes(Charset.forName("windows-1251"));
@@ -650,17 +654,45 @@ public class AddGroupFragment extends Fragment {
                                 public void onClick(DialogInterface dialog, int id) {
 
                                     File file = new File(getContext().getFilesDir(), "groups.grf");
-                                    try {
-                                        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+                                    if (!file.exists()) {
+                                        byte[] nulls = new byte[51200];
+                                        FileOutputStream fos = null;
                                         try {
-                                            randomAccessFile.seek(groupSize * pos);
-                                            randomAccessFile.write(newGroup);
-                                        } finally {
-                                            randomAccessFile.close();
+                                            fos = new FileOutputStream(file);
+                                        } catch (FileNotFoundException e) {
+                                            e.printStackTrace();
                                         }
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
+                                        try {
+                                            fos.write(nulls);
+                                            fos.flush();
+                                            fos.close();
+
+                                            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+                                            try {
+                                                randomAccessFile.seek(groupSize * pos);
+                                                randomAccessFile.write(newGroup);
+                                            } finally {
+                                                randomAccessFile.close();
+                                            }
+
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        }
+
+                                    } else {
+                                        try {
+                                            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+                                            try {
+                                                randomAccessFile.seek(groupSize * pos);
+                                                randomAccessFile.write(newGroup);
+                                            } finally {
+                                                randomAccessFile.close();
+                                            }
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        }
                                     }
+
 
                                     NavHostFragment.findNavController(AddGroupFragment.this)
                                             .navigate(R.id.action_AddGroupFragment_to_GroupFragment);
