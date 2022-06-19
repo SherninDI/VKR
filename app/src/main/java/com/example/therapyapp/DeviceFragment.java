@@ -21,12 +21,13 @@ import android.view.ViewGroup;
 
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.widget.Toast;
 import com.example.therapyapp.databinding.FragmentDeviceBinding;
 
 public class DeviceFragment extends Fragment implements DeviceListInteractionListener<BluetoothDevice> {
-
-    private FragmentDeviceBinding binding;
     private static String TAG = "Device Fragment";
+    private FragmentDeviceBinding binding;
+
     private FloatingActionButton fab;
     private BluetoothAdapter bluetoothAdapter;
 
@@ -105,7 +106,7 @@ public class DeviceFragment extends Fragment implements DeviceListInteractionLis
 
         if (bluetoothHandler.isAlreadyPaired(device)) {
             Log.d(TAG, "Device already paired!");
-//            Toast.makeText(this, R.string.device_already_paired, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getActivity(), R.string.device_already_paired, Toast.LENGTH_SHORT).show();
 
             if (device != null) {
                 String address = device.getAddress();
@@ -168,22 +169,6 @@ public class DeviceFragment extends Fragment implements DeviceListInteractionLis
            bluetoothHandler.cancelDiscovery();
         }
         binding = null;
-    }
-
-
-    @Override
-    public void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
     }
 
 

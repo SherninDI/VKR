@@ -11,19 +11,19 @@ import java.io.IOException;
 
 public class DatabaseAdapter {
     private final String TAG = "databaseAdapter";
-    private final Context mContext;
-    private SQLiteDatabase mDb;
-    private DatabaseHelper mDatabaseHelper;
+    private final Context context;
+    private SQLiteDatabase database;
+    private DatabaseHelper databaseHelper;
     private String sql;
 
     public DatabaseAdapter(Context context) {
-        this.mContext = context;
-        mDatabaseHelper = new DatabaseHelper(mContext);
+        this.context = context;
+        databaseHelper = new DatabaseHelper(this.context);
     }
 
     public DatabaseAdapter createDataBase() throws SQLException {
         try {
-            mDatabaseHelper.createDataBase();
+            databaseHelper.createDataBase();
         } catch (IOException mIOException) {
             Log.e(TAG, mIOException.toString() + "  UnableToCreateDatabase");
             throw new Error("UnableToCreateDatabase");
@@ -33,9 +33,9 @@ public class DatabaseAdapter {
 
     public DatabaseAdapter openDataBase() throws SQLException {
         try {
-            mDatabaseHelper.openDataBase();
-            mDatabaseHelper.close();
-            mDb = mDatabaseHelper.getReadableDatabase();
+            databaseHelper.openDataBase();
+            databaseHelper.close();
+            database = databaseHelper.getReadableDatabase();
         } catch (SQLException mSQLException) {
             Log.e(TAG, "open >>"+ mSQLException.toString());
             throw mSQLException;
@@ -44,22 +44,17 @@ public class DatabaseAdapter {
     }
 
     public void close() {
-        mDatabaseHelper.close();
+        databaseHelper.close();
     }
 
     public Cursor getData(String sql) {
         this.sql = sql;
         try {
-            Cursor mCur = mDb.rawQuery(sql, null);
+            Cursor mCur = database.rawQuery(sql, null);
             return mCur;
         } catch (SQLException mSQLException) {
             Log.e(TAG, "getData >>"+ mSQLException.toString());
             throw mSQLException;
         }
-    }
-
-    public void executeSql(String sql) {
-        this.sql = sql;
-        mDb.execSQL(sql);
     }
 }

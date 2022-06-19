@@ -61,4 +61,5 @@
     <string name="add_group_alert">Добавление группы</string>
     <string name="reset_alert">Уведомление</string>
     <string name="reset_mes">После добавления или редактирования группы необходимо сбросить аппарат в исходное состояние</string>
+    <string name="device_already_paired">Device already paired</string>
 </resources>
