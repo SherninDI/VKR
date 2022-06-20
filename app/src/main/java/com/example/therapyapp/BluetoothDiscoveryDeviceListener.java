@@ -16,11 +16,11 @@ public interface BluetoothDiscoveryDeviceListener {
     void onDeviceDiscoveryStarted();
 
     /**
-     * Called on creation to inject a {@link BluetoothHandler} component to handle Bluetooth.
+     * Called on creation to inject a {@link BluetoothPairingHandler} component to handle Bluetooth.
      *
      * @param bluetooth the controller for the Bluetooth.
      */
-    void setBluetoothController(BluetoothHandler bluetooth);
+    void setBluetoothPairingHandler(BluetoothPairingHandler bluetooth);
 
     /**
      * Called when discovery ends.

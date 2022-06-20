@@ -26,8 +26,8 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class AddGroupFragment extends Fragment {
-    private static final String TAG = "AddGroupFragment";
+public class GroupAddFragment extends Fragment {
+    private static final String TAG = "GroupAddFragment";
     private FragmentAddGroupBinding binding;
 
     private DatabaseAdapter databaseAdapter;
@@ -69,7 +69,6 @@ public class AddGroupFragment extends Fragment {
         while (cursor.moveToNext()) {
             int id = cursor.getInt(0);
             String name = cursor.getString(1);
-            ItemGroup group = new ItemGroup(id, name);
             groups.add(name);
         }
         cursor.close();
@@ -171,8 +170,8 @@ public class AddGroupFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 int count = Integer.parseInt(editCount.getText().toString());
-                if (count == 0) {
-                    editCount.setError("Количество шагов не может быть равным 0");
+                if (count < 0 || count > 80) {
+                    editCount.setError("Количество шагов должно может быть в диапазоне 0 - 80");
                 } else {
                     for (int i = 0; i < count; i++) {
                         int start = (i * 6);
@@ -694,7 +693,7 @@ public class AddGroupFragment extends Fragment {
                                     }
 
 
-                                    NavHostFragment.findNavController(AddGroupFragment.this)
+                                    NavHostFragment.findNavController(GroupAddFragment.this)
                                             .navigate(R.id.action_AddGroupFragment_to_GroupFragment);
 
                                 }

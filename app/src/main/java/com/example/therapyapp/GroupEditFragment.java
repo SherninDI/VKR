@@ -26,8 +26,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class EditGroupFragment extends Fragment {
-    private static final String TAG = "EditGroupFragment";
+public class GroupEditFragment extends Fragment {
+    private static final String TAG = "GroupEditFragment";
     private FragmentEditGroupBinding binding;
 
     private DatabaseAdapter databaseAdapter;
@@ -68,7 +68,6 @@ public class EditGroupFragment extends Fragment {
         while (cursor.moveToNext()) {
             int id = cursor.getInt(0);
             String name = cursor.getString(1);
-            ItemGroup group = new ItemGroup(id, name);
             groups.add(name);
         }
         cursor.close();
@@ -229,8 +228,8 @@ public class EditGroupFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 int count = Integer.parseInt(editCount.getText().toString());
-                if (count == 0) {
-                    editSteps.setError("Количество шагов не может быть равным 0");
+                if (count < 0 || count > 80) {
+                    editSteps.setError("Количество шагов должно может быть в диапазоне 0 - 80");
                 } else {
                     for (int i = 0; i < count; i++) {
                         int start = (i * 6);
@@ -672,7 +671,7 @@ public class EditGroupFragment extends Fragment {
                         ByteBuffer saveCountBuffer = ByteBuffer.allocate(4);
                         saveCountBuffer.putInt(saveCountValue);
                         byte[] saveCountBytes = Arrays.copyOfRange(groupHelper.reverseByteArray(saveCountBuffer.array()),0,1);
-                        if (saveCountValue >= 0 && saveCountValue <= 80) {
+                        if (saveCountValue > 0 && saveCountValue < 81) {
                             newGroupBuffer.put(saveCountBytes);
                             saveStepCount = true;
                         } else {
@@ -731,7 +730,7 @@ public class EditGroupFragment extends Fragment {
                                     }
 
 
-                                    NavHostFragment.findNavController(EditGroupFragment.this)
+                                    NavHostFragment.findNavController(GroupEditFragment.this)
                                             .navigate(R.id.action_EditGroupFragment_to_GroupFragment);
                                 }
                             });
@@ -833,7 +832,7 @@ public class EditGroupFragment extends Fragment {
 
 
 
-                                NavHostFragment.findNavController(EditGroupFragment.this)
+                                NavHostFragment.findNavController(GroupEditFragment.this)
                                         .navigate(R.id.action_EditGroupFragment_to_GroupFragment);
                             }
                         });
@@ -968,21 +967,6 @@ public class EditGroupFragment extends Fragment {
                 alertDialog.show();
             }
         });
-    }
-
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-
-        // Checks the orientation of the screen
-        if (newConfig.keyboardHidden == Configuration.KEYBOARDHIDDEN_NO) {
-            Log.e(TAG,"keyboard visible");
-//            Toast.makeText(getActivity(), "keyboard visible", Toast.LENGTH_SHORT).show();
-        } else if (newConfig.keyboardHidden == Configuration.KEYBOARDHIDDEN_YES) {
-            Log.e(TAG,"keyboard hidden");
-//            Toast.makeText(getActivity(), "keyboard hidden", Toast.LENGTH_SHORT).show();
-        }
     }
 
 

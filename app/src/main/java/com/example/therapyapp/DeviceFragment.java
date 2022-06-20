@@ -1,7 +1,6 @@
 package com.example.therapyapp;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
@@ -9,7 +8,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,7 +19,6 @@ import android.view.ViewGroup;
 
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.widget.Toast;
 import com.example.therapyapp.databinding.FragmentDeviceBinding;
 
 public class DeviceFragment extends Fragment implements DeviceListInteractionListener<BluetoothDevice> {
@@ -31,7 +28,7 @@ public class DeviceFragment extends Fragment implements DeviceListInteractionLis
     private FloatingActionButton fab;
     private BluetoothAdapter bluetoothAdapter;
 
-    private BluetoothHandler bluetoothHandler;
+    private BluetoothPairingHandler bluetoothPairingHandler;
     private DeviceRecyclerViewAdapter deviceListAdapter;
     private RecyclerViewSupport rvDevices;
 
@@ -77,21 +74,21 @@ public class DeviceFragment extends Fragment implements DeviceListInteractionLis
         bluetoothAdapter = bluetoothManager.getAdapter();
 
         rvDevices.setAdapter(deviceListAdapter);
-        bluetoothHandler = new BluetoothHandler(getActivity(), bluetoothAdapter, deviceListAdapter);
+        bluetoothPairingHandler = new BluetoothPairingHandler(getActivity(), bluetoothAdapter, deviceListAdapter);
 
         fab.setImageResource(R.drawable.ic_bluetooth_white_24dp);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!bluetoothHandler.isBluetoothEnabled()){
-                    bluetoothHandler.turnOnBluetoothAndScheduleDiscovery();
+                if (!bluetoothPairingHandler.isBluetoothEnabled()){
+                    bluetoothPairingHandler.turnOnBluetoothAndScheduleDiscovery();
                 } else {
-                    if (!bluetoothHandler.isDiscovering()) {
-                        bluetoothHandler.startDiscovery();
+                    if (!bluetoothPairingHandler.isDiscovering()) {
+                        bluetoothPairingHandler.startDiscovery();
                         Snackbar.make(view, "Поиск устройств...", Snackbar.LENGTH_LONG)
                                 .show();
                     } else {
-                        bluetoothHandler.cancelDiscovery();
+                        bluetoothPairingHandler.cancelDiscovery();
                         Snackbar.make(view, "Поиск устройств остановлен", Snackbar.LENGTH_LONG)
                                     .show();
                     }
@@ -104,7 +101,7 @@ public class DeviceFragment extends Fragment implements DeviceListInteractionLis
     @Override
     public void onItemClick(BluetoothDevice device) {
 
-        if (bluetoothHandler.isAlreadyPaired(device)) {
+        if (bluetoothPairingHandler.isAlreadyPaired(device)) {
             Log.d(TAG, "Device already paired!");
 //            Toast.makeText(getActivity(), R.string.device_already_paired, Toast.LENGTH_SHORT).show();
 
@@ -121,10 +118,10 @@ public class DeviceFragment extends Fragment implements DeviceListInteractionLis
 
         } else {
             Log.d(TAG, "Device not paired. Pairing.");
-            boolean outcome = bluetoothHandler.pair(device);
+            boolean outcome = bluetoothPairingHandler.pair(device);
 
             // Prints a message to the user.
-            String deviceName = BluetoothHandler.getDeviceName(device);
+            String deviceName = BluetoothPairingHandler.getDeviceName(device);
             if (outcome) {
                 // The pairing has started, shows a progress dialog.
                 Log.d(TAG, "Showing pairing dialog");
@@ -152,7 +149,7 @@ public class DeviceFragment extends Fragment implements DeviceListInteractionLis
 
     @Override
     public void endLoadingWithDialog(boolean error, BluetoothDevice device) {
-        String deviceName = BluetoothHandler.getDeviceName(device);
+        String deviceName = BluetoothPairingHandler.getDeviceName(device);
         // Gets the message to print.
         if (error) {
             Log.e(TAG,"Failed pairing with device " + deviceName + "!");
@@ -165,8 +162,8 @@ public class DeviceFragment extends Fragment implements DeviceListInteractionLis
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if (bluetoothHandler.isDiscovering()) {
-           bluetoothHandler.cancelDiscovery();
+        if (bluetoothPairingHandler.isDiscovering()) {
+           bluetoothPairingHandler.cancelDiscovery();
         }
         binding = null;
     }
@@ -180,14 +177,14 @@ public class DeviceFragment extends Fragment implements DeviceListInteractionLis
         super.onStop();
         Log.e(TAG,"stop");
         // Stoops the discovery.
-        if (this.bluetoothHandler != null) {
-            this.bluetoothHandler.cancelDiscovery();
+        if (this.bluetoothPairingHandler != null) {
+            this.bluetoothPairingHandler.cancelDiscovery();
         }
     }
 
     @Override
     public void onDestroy() {
-        bluetoothHandler.close();
+        bluetoothPairingHandler.close();
         super.onDestroy();
         binding = null;
     }

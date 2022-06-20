@@ -12,19 +12,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static String TAG = "DbHelper";
     private final File DB_FILE;
-    private SQLiteDatabase mDataBase;
-    private final Context mContext;
+    private SQLiteDatabase database;
+    private final Context context;
 
     public DatabaseHelper(Context context){
         super(context,Constants.DB_NAME,null, Constants.DB_VERSION);
         DB_FILE = context.getDatabasePath(Constants.DB_NAME);
-        this.mContext = context;
+        this.context = context;
     }
 
     public void createDataBase() throws IOException {
         // If the database does not exist, copy it from the assets.
-        boolean mDataBaseExist = checkDataBase();
-        if(!mDataBaseExist) {
+        boolean dataBaseExist = checkDataBase();
+        if(!dataBaseExist) {
             this.getReadableDatabase();
             this.close();
             try {
@@ -44,7 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Copy the database from assets
     private void copyDataBase() throws IOException {
-        InputStream mInput = mContext.getAssets().open(Constants.DB_NAME);
+        InputStream mInput = context.getAssets().open(Constants.DB_NAME);
         OutputStream mOutput = new FileOutputStream(DB_FILE);
         byte[] mBuffer = new byte[1024];
         int mLength;
@@ -59,15 +59,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Open the database, so we can query it
     public boolean openDataBase() throws SQLException {
         // Log.v("DB_PATH", DB_FILE.getAbsolutePath());
-        mDataBase = SQLiteDatabase.openOrCreateDatabase(DB_FILE.toString(), null, null);
+        database = SQLiteDatabase.openOrCreateDatabase(DB_FILE.toString(), null, null);
         // mDataBase = SQLiteDatabase.openDatabase(DB_FILE, null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
-        return mDataBase != null;
+        return database != null;
     }
 
     @Override
     public synchronized void close() {
-        if(mDataBase != null) {
-            mDataBase.close();
+        if(database != null) {
+            database.close();
         }
         super.close();
     }

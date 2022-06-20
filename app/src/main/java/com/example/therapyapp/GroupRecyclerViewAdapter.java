@@ -7,16 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class GroupsRecyclerViewAdapter extends RecyclerView.Adapter<GroupsRecyclerViewAdapter.ViewHolder>{
+public class GroupRecyclerViewAdapter extends RecyclerView.Adapter<GroupRecyclerViewAdapter.ViewHolder>{
     private final List<String> groups;
     private final LayoutInflater mInflater;
     private static GroupClickListener groupClickListener;
 
     // data is passed into the constructor
-    GroupsRecyclerViewAdapter(Context context, List<String> groups) {
+    GroupRecyclerViewAdapter(Context context, List<String> groups) {
         this.mInflater = LayoutInflater.from(context);
         this.groups = groups;
 
@@ -24,9 +23,9 @@ public class GroupsRecyclerViewAdapter extends RecyclerView.Adapter<GroupsRecycl
 
     // inflates the row layout from xml when needed
     @Override
-    public GroupsRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public GroupRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.list_item_group, parent, false);
-        return new GroupsRecyclerViewAdapter.ViewHolder(view);
+        return new GroupRecyclerViewAdapter.ViewHolder(view);
     }
 
     // binds the data to the TextView in each row
@@ -60,8 +59,8 @@ public class GroupsRecyclerViewAdapter extends RecyclerView.Adapter<GroupsRecycl
 
     }
 
-    public void setOnGroupClickListener(GroupsRecyclerViewAdapter.GroupClickListener groupClickListener) {
-        GroupsRecyclerViewAdapter.groupClickListener = groupClickListener;
+    public void setOnGroupClickListener(GroupRecyclerViewAdapter.GroupClickListener groupClickListener) {
+        GroupRecyclerViewAdapter.groupClickListener = groupClickListener;
     }
 
     public interface GroupClickListener {

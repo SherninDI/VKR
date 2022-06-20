@@ -20,7 +20,7 @@
     </fragment>
     <fragment
             android:id="@+id/EditGroupFragment"
-            android:name="com.example.therapyapp.EditGroupFragment"
+            android:name="com.example.therapyapp.GroupEditFragment"
             android:label="Редактирование группы"
             tools:layout="@layout/fragment_edit_group">
 
@@ -31,7 +31,7 @@
 
     <fragment
             android:id="@+id/AddGroupFragment"
-            android:name="com.example.therapyapp.AddGroupFragment"
+            android:name="com.example.therapyapp.GroupAddFragment"
             android:label="Создание новой группы"
             tools:layout="@layout/fragment_add_group">
 

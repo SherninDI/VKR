@@ -14,10 +14,10 @@ public class BluetoothBroadcastReceiver extends BroadcastReceiver {
     private final Context context;
 
 
-    public BluetoothBroadcastReceiver(Context context, BluetoothDiscoveryDeviceListener listener, BluetoothHandler bluetoothHandler) {
+    public BluetoothBroadcastReceiver(Context context, BluetoothDiscoveryDeviceListener listener, BluetoothPairingHandler bluetoothPairingHandler) {
         this.listener = listener;
         this.context = context;
-        this.listener.setBluetoothController(bluetoothHandler);
+        this.listener.setBluetoothPairingHandler(bluetoothPairingHandler);
 
         // Register for broadcasts when a device is discovered.
         IntentFilter filter = new IntentFilter();
@@ -35,7 +35,7 @@ public class BluetoothBroadcastReceiver extends BroadcastReceiver {
         switch (action) {
             case BluetoothDevice.ACTION_FOUND :
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                Log.d(TAG, "Device discovered! " + BluetoothHandler.deviceToString(device));
+                Log.d(TAG, "Device discovered! " + BluetoothPairingHandler.deviceToString(device));
                 listener.onDeviceDiscovered(device);
                 break;
 
@@ -79,7 +79,6 @@ public class BluetoothBroadcastReceiver extends BroadcastReceiver {
     public void onBluetoothTurningOn() {
         listener.onBluetoothTurningOn();
     }
-
 
     public void close() {
         context.unregisterReceiver(this);

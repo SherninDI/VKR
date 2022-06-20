@@ -14,11 +14,10 @@ import java.util.List;
 public class DeviceRecyclerViewAdapter extends RecyclerView.Adapter<DeviceRecyclerViewAdapter.ViewHolder> implements BluetoothDiscoveryDeviceListener {
     private final List<BluetoothDevice> devices;
     private final DeviceListInteractionListener<BluetoothDevice> listener;
-    private BluetoothHandler bluetoothHandler;
+    private BluetoothPairingHandler bluetoothPairingHandler;
 
     public DeviceRecyclerViewAdapter(DeviceListInteractionListener<BluetoothDevice> listener) {
         this.devices = new ArrayList<>();
-
         this.listener = listener;
     }
 
@@ -61,7 +60,7 @@ public class DeviceRecyclerViewAdapter extends RecyclerView.Adapter<DeviceRecycl
      * @return a resource drawable id for the device icon.
      */
     private int getDeviceIcon(BluetoothDevice device) {
-        if (bluetoothHandler.isAlreadyPaired(device)) {
+        if (bluetoothPairingHandler.isAlreadyPaired(device)) {
             return R.drawable.ic_bluetooth_connected_black_24dp;
         } else {
             return R.drawable.ic_bluetooth_black_24dp;
@@ -88,8 +87,8 @@ public class DeviceRecyclerViewAdapter extends RecyclerView.Adapter<DeviceRecycl
     }
 
     @Override
-    public void setBluetoothController(BluetoothHandler bluetoothHandler) {
-        this.bluetoothHandler = bluetoothHandler;
+    public void setBluetoothPairingHandler(BluetoothPairingHandler bluetoothPairingHandler) {
+        this.bluetoothPairingHandler = bluetoothPairingHandler;
     }
 
     @Override
@@ -101,7 +100,7 @@ public class DeviceRecyclerViewAdapter extends RecyclerView.Adapter<DeviceRecycl
     @Override
     public void onBluetoothStatusChanged() {
         // Notifies the Bluetooth controller.
-        bluetoothHandler.onBluetoothStatusChanged();
+        bluetoothPairingHandler.onBluetoothStatusChanged();
     }
 
     @Override
@@ -111,9 +110,9 @@ public class DeviceRecyclerViewAdapter extends RecyclerView.Adapter<DeviceRecycl
 
     @Override
     public void onDevicePairingEnded() {
-        if (bluetoothHandler.isPairingInProgress()) {
-            BluetoothDevice device = bluetoothHandler.getBoundingDevice();
-            switch (bluetoothHandler.getPairingDeviceStatus()) {
+        if (bluetoothPairingHandler.isPairingInProgress()) {
+            BluetoothDevice device = bluetoothPairingHandler.getBoundingDevice();
+            switch (bluetoothPairingHandler.getPairingDeviceStatus()) {
                 case BluetoothDevice.BOND_BONDING:
                     // Still pairing, do nothing.
                     break;

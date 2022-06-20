@@ -7,12 +7,8 @@ import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.*;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -68,7 +64,7 @@ public class GroupFragment extends Fragment {
 
     public List<String> groupList = new ArrayList<>();
     RecyclerView rvGroupList;
-    GroupsRecyclerViewAdapter adapter;
+    GroupRecyclerViewAdapter adapter;
 
 
     ByteArrayOutputStream dataBuffer = new ByteArrayOutputStream();
@@ -154,11 +150,11 @@ public class GroupFragment extends Fragment {
             }
         }
 
-        adapter = new GroupsRecyclerViewAdapter(getActivity(),groupList);
+        adapter = new GroupRecyclerViewAdapter(getActivity(),groupList);
         rvGroupList.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
-        adapter.setOnGroupClickListener(new GroupsRecyclerViewAdapter.GroupClickListener() {
+        adapter.setOnGroupClickListener(new GroupRecyclerViewAdapter.GroupClickListener() {
             @Override
             public void onGroupClick(int position, View itemView) {
                 Log.e(TAG, String.valueOf(position));
@@ -239,7 +235,7 @@ public class GroupFragment extends Fragment {
 
                     }
                 }
-                adapter = new GroupsRecyclerViewAdapter(getActivity(),groupList);
+                adapter = new GroupRecyclerViewAdapter(getActivity(),groupList);
                 rvGroupList.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
             }

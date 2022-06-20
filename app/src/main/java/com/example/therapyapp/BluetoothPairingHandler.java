@@ -11,11 +11,10 @@ import android.util.Log;
 import android.widget.Toast;
 
 import java.io.Closeable;
-import java.util.Set;
 
-public class BluetoothHandler implements Closeable {
+public class BluetoothPairingHandler implements Closeable {
     //Tag string used for logging.
-    private static final String TAG = "BluetoothHandler";
+    private static final String TAG = "BluetoothPairingHandler";
 
     //Interface for Bluetooth OS services
     private final BluetoothAdapter bluetoothAdapter;
@@ -33,12 +32,12 @@ public class BluetoothHandler implements Closeable {
     private BluetoothDevice boundingDevice;
 
     /**
-     * Instantiates a new BluetoothHandler.
+     * Instantiates a new BluetoothPairingHandler.
      *
      * @param context  the activity which is using this controller.
      * @param listener a callback for handling Bluetooth events.
      */
-    public BluetoothHandler(Activity context, BluetoothAdapter adapter, BluetoothDiscoveryDeviceListener listener) {
+    public BluetoothPairingHandler(Activity context, BluetoothAdapter adapter, BluetoothDiscoveryDeviceListener listener) {
         this.context = context;
         this.bluetoothAdapter = adapter;
         this.bluetoothBroadcastReceiver = new BluetoothBroadcastReceiver(context, listener, this);
@@ -71,7 +70,7 @@ public class BluetoothHandler implements Closeable {
 
                 ActivityCompat.requestPermissions(context, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 1001); //Any number
             }
-        }else{
+        }else {
             Log.d(TAG, "checkBTPermissions: No need to check permissions. SDK version < LOLLIPOP.");
         }
 
@@ -234,9 +233,7 @@ public class BluetoothHandler implements Closeable {
      *
      * @return the name of the currently pairing device.
      */
-    public String getPairingDeviceName() {
-        return getDeviceName(this.boundingDevice);
-    }
+
 
     /**
      * Gets the name of a device. If the device name is not available, returns the device address.
