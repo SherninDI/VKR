@@ -52,6 +52,7 @@
     <string name="delete_group">Удалить группу</string>
     <string name="edit_steps">Редактировать шаги</string>
     <string name="add_group">Добавить группу</string>
+    <string name="cancel_group">Отменить</string>
     <string name="del_group_alert">Удаление группы</string>
     <string name="group_mes">Вы уверены?</string>
     <string name="save_group_alert">Сохранение группы</string>
