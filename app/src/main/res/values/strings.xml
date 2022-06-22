@@ -26,10 +26,12 @@
     <string name="title_q">Максимум 15 символов</string>
     <string name="time_t">Общее время группы</string>
     <string name="time_q">0 - 65535, 0 - бесконечно</string>
-    <string name="mode_t">Режим исполнения группы</string>
-    <string name="mode_q">0 = «Посл»,\n
-        1 = «Цикл»,\n
-        2 = «Компл».</string>
+
+    <string name="mode_t">Режим исполнения группы:</string>
+    <string name="mode_serial">Последовательное исполнение</string>
+    <string name="mode_cycle">Циклическое исполнение</string>
+    <string name="mode_complex">Комплексное исполнение</string>
+
     <string name="spre_t">Расширение спектра программ:</string>
     <string name="spre_q">0 = «Выкл», 1 = «Вкл-1», 2 = «Вкл-2» </string>
     <string name="maxf_t">Ограничение частоты, Гц:</string>
@@ -37,14 +39,9 @@
     <string name="cnt_t">Число шагов в группе</string>
     <string name="cnt_q">0 – группа пуста </string>
     <string name="type_t">Тип записи</string>
-    <string name="type_q">\n 0 – частота в диапазоне x1;\n
-        1 – частота в диапазоне x10;\n
-        2 – частота в диапазоне x100;\n
-        3 – частота в диапазоне x1000;\n
-        “f”,“d”,“m”,“p” – программа из справочника EB00 (см.)</string>
-    <string name="freq_id_t">Частота\nКод программы</string>
-    <string name="freq_id_q">Частота, 10..9999 * (диап)/100,Гц\n
-        Код программы в справочнике, 1.. </string>
+    <string name="type_q">“f”,“d”,“m”,“p” – программа из справочника EB00 (см.)</string>
+    <string name="freq_id_t">Код программы</string>
+    <string name="freq_id_q">Код программы в справочнике, 1.. </string>
     <string name="freq_id_b">Справочник кодов</string>
     <string name="ampl_t">Амплитуда</string>
     <string name="ampl_q">0 – 100 </string>
@@ -62,4 +59,18 @@
     <string name="reset_alert">Уведомление</string>
     <string name="reset_mes">После добавления или редактирования группы необходимо сбросить аппарат в исходное состояние</string>
     <string name="device_already_paired">Device already paired</string>
+    <string name="group_settings">Настройки группы</string>
+    <string name="eddEpt">Добавить воздействие</string>
+    <string name="mode_q_serial">Шаги STEP исполняются один за другим однократно с указанными для каждого из них
+        параметрами. В поле TIME сохраняется сумма длительностей всех шагов группы. Если имеется хотя бы один шаг с
+        нулевой длительностью или суммарная длительность шагов превышает 65535 сек, то TIME устанавливается в 0.
+    </string>
+    <string name="mode_q_cycle">Шаги STEP исполняются один за другим с указанными для каждого из них параметрами, по
+        завершению последнего шага исполнение продолжается с первого шага. Терапия завершается по истечению времени
+        TIME, которое указывается произвольно, вне зависимости от завершенности текущего шага.
+    </string>
+    <string name="mode_q_complex">Все шаги STEP исполняются одновременно в режиме комплексного исполнения частот. Для всех
+        шагов используется интенсивность первого шага, остальные интенсивности не проверяются и не учитываются. Терапия
+        завершается по истечению времени TIME, которое указывается произвольно. Длительности шагов не учитываются.
+    </string>
 </resources>

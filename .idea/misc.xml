@@ -11,8 +11,10 @@
         <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/content_data.xml" value="0.25" />
         <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/content_group.xml" value="0.1953125" />
         <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/content_main.xml" value="0.35260416666666666" />
-        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/dialog_view_step.xml" value="0.17407407407407408" />
-        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/dialog_view_subgroup.xml" value="0.20989583333333334" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/dialag_view_settings_group.xml" value="0.5" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/dialog_view_settings_group.xml" value="0.22" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/dialog_view_step.xml" value="0.25" />
+        <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/dialog_view_subgroup.xml" value="0.33" />
         <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/fragment_add_group.xml" value="0.35" />
         <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/fragment_data.xml" value="0.22" />
         <entry key="..\:/8sem/VKR2022/VKR/app/src/main/res/layout/fragment_device.xml" value="0.22" />

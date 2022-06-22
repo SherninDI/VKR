@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp" app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="10dp" app:layout_constraintBottom_toBottomOf="parent">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/linear_title"
+                android:layout_marginTop="10dp" app:layout_constraintTop_toBottomOf="parent"
+                android:layout_marginBottom="5dp" app:layout_constraintBottom_toTopOf="@id/linear_time"
+                android:layout_marginStart="10dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="10dp" app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:minWidth="36dp"
+                    android:maxWidth="96dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/question_mark"
+                    android:scaleType="fitCenter"
+                    android:id="@+id/title_q"
+                    android:background="@color/white"
+                    android:layout_marginStart="0dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginEnd="10dp" app:layout_constraintEnd_toEndOf="@+id/title_t"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:minWidth="120dp"
+                    android:maxWidth="160dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/title_t"
+                    android:text="@string/title_t"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:gravity="fill_vertical"
+                    android:layout_marginStart="0dp" app:layout_constraintStart_toEndOf="@+id/title_q"
+                    android:layout_marginEnd="10dp" app:layout_constraintEnd_toStartOf="@id/title_e"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:minWidth="240dp"
+                    android:maxWidth="300dp"
+                    android:textSize="14sp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/title_e"
+                    android:layout_marginStart="0dp" app:layout_constraintStart_toEndOf="@+id/title_t"
+                    android:layout_marginEnd="0dp" app:layout_constraintEnd_toEndOf="parent"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/linear_time"
+                android:layout_marginTop="0dp" app:layout_constraintTop_toBottomOf="@id/linear_title"
+                android:layout_marginBottom="5dp" app:layout_constraintBottom_toTopOf="@id/linear_mode"
+                android:layout_marginStart="10dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="10dp" app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:minWidth="36dp"
+                    android:maxWidth="96dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/question_mark"
+                    android:scaleType="fitCenter"
+                    android:id="@+id/time_q"
+                    android:background="@color/white"
+                    android:layout_marginStart="0dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginEnd="10dp" app:layout_constraintEnd_toEndOf="@+id/time_t"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:minWidth="160dp"
+                    android:maxWidth="300dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/time_t"
+                    android:text="@string/time_t"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:gravity="fill_vertical"
+                    android:layout_marginStart="0dp" app:layout_constraintStart_toEndOf="@+id/time_q"
+                    android:layout_marginEnd="10dp" app:layout_constraintEnd_toEndOf="parent"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:minWidth="160dp"
+                    android:maxWidth="300dp"
+                    android:layout_height="match_parent"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    android:id="@+id/time_e"
+                    android:layout_marginStart="0dp" app:layout_constraintStart_toEndOf="@+id/time_t"
+                    android:layout_marginEnd="0dp" app:layout_constraintEnd_toEndOf="parent"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/linear_mode"
+                android:layout_marginTop="0dp" app:layout_constraintTop_toBottomOf="@id/linear_time"
+                android:layout_marginBottom="5dp" app:layout_constraintBottom_toTopOf="@id/linear_spre"
+                android:layout_marginStart="10dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="10dp" app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/mode_t"
+                    android:text="@string/mode_t"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:gravity="fill_vertical"
+                    android:layout_marginTop="10dp" app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginBottom="10dp" app:layout_constraintBottom_toTopOf="@id/mode_serial"
+                    android:layout_marginStart="10dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginEnd="10dp" app:layout_constraintEnd_toEndOf="parent"/>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:id="@+id/linear_serial"
+                    android:layout_marginTop="0dp" app:layout_constraintTop_toBottomOf="@id/mode_t"
+                    android:layout_marginBottom="5dp" app:layout_constraintBottom_toTopOf="@id/linear_cycle">
+                <ImageButton
+                        android:layout_width="wrap_content"
+                        android:minWidth="36dp"
+                        android:maxWidth="96dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/question_mark"
+                        android:scaleType="fitCenter"
+                        android:id="@+id/mode_serial_q"
+                        android:background="@color/white"
+                        android:layout_marginStart="0dp" app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginEnd="5dp" app:layout_constraintEnd_toStartOf="@+id/mode_serial"/>
+
+                <CheckBox
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/mode_serial"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:id="@+id/mode_serial"
+                        android:layout_marginStart="5dp" app:layout_constraintStart_toEndOf="@+id/mode_serial_q"
+                        android:layout_marginEnd="10dp" app:layout_constraintEnd_toEndOf="parent"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:id="@+id/linear_cycle"
+                    android:layout_marginTop="0dp" app:layout_constraintTop_toBottomOf="@id/mode_t"
+                    android:layout_marginBottom="5dp" app:layout_constraintBottom_toTopOf="@id/linear_complex">
+                <ImageButton
+                        android:layout_width="wrap_content"
+                        android:minWidth="36dp"
+                        android:maxWidth="96dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/question_mark"
+                        android:scaleType="fitCenter"
+                        android:id="@+id/mode_cycle_q"
+                        android:background="@color/white"
+                        android:layout_marginStart="0dp" app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginEnd="5dp" app:layout_constraintEnd_toStartOf="@+id/mode_cycle"/>
+
+                <CheckBox
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/mode_cycle"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:id="@+id/mode_cycle"
+                        android:layout_marginStart="5dp" app:layout_constraintStart_toStartOf="@+id/mode_cycle_q"
+                        android:layout_marginEnd="10dp" app:layout_constraintEnd_toEndOf="parent"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:id="@+id/linear_complex"
+                    android:layout_marginTop="0dp" app:layout_constraintTop_toBottomOf="@id/mode_t"
+                    android:layout_marginBottom="5dp" app:layout_constraintBottom_toBottomOf="parent">
+
+                <ImageButton
+                        android:layout_width="wrap_content"
+                        android:minWidth="36dp"
+                        android:maxWidth="96dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/question_mark"
+                        android:scaleType="fitCenter"
+                        android:id="@+id/mode_complex_q"
+                        android:background="@color/white"
+                        android:layout_marginStart="0dp" app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginEnd="5dp" app:layout_constraintEnd_toStartOf="@+id/mode_complex"/>
+
+                <CheckBox
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/mode_complex"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:id="@+id/mode_complex"
+                        android:layout_marginStart="5dp" app:layout_constraintStart_toStartOf="@+id/mode_complex_q"
+                        android:layout_marginEnd="10dp" app:layout_constraintEnd_toEndOf="parent"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/linear_spre"
+                android:layout_marginTop="0dp" app:layout_constraintTop_toBottomOf="@id/linear_mode"
+                android:layout_marginBottom="5dp" app:layout_constraintBottom_toTopOf="@id/linear_maxf"
+                android:layout_marginStart="10dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="10dp" app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/spre_t"
+                    android:text="@string/spre_t"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:gravity="fill_vertical"
+                    android:layout_marginTop="10dp" app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginBottom="10dp" app:layout_constraintBottom_toTopOf="@id/spre_disable"
+                    android:layout_marginStart="10dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginEnd="10dp" app:layout_constraintEnd_toEndOf="parent"/>
+
+            <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Включить 1"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:id="@+id/spre_enable1"
+                    android:layout_marginTop="5dp" app:layout_constraintTop_toTopOf="@id/spre_t"
+                    android:layout_marginBottom="5dp" app:layout_constraintBottom_toTopOf="@+id/spre_enable2"
+                    android:layout_marginStart="20dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginEnd="20dp" app:layout_constraintEnd_toStartOf="parent"/>
+
+            <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Включить 2"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:id="@+id/spre_enable2"
+                    android:layout_marginTop="5dp" app:layout_constraintTop_toBottomOf="@id/spre_enable1"
+                    android:layout_marginBottom="5dp" app:layout_constraintBottom_toTopOf="@+id/spre_disable"
+                    android:layout_marginStart="20dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginEnd="20dp" app:layout_constraintEnd_toStartOf="parent"/>
+
+            <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Выключить"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:id="@+id/spre_disable"
+                    android:layout_marginTop="5dp" app:layout_constraintTop_toBottomOf="@id/spre_enable2"
+                    android:layout_marginBottom="5dp" app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="20dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginEnd="20dp" app:layout_constraintEnd_toStartOf="parent"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/linear_maxf"
+                android:layout_marginTop="0dp" app:layout_constraintTop_toBottomOf="@id/linear_spre"
+                android:layout_marginBottom="5dp" app:layout_constraintBottom_toTopOf="parent"
+                android:layout_marginStart="10dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="10dp" app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/maxf_t"
+                    android:text="@string/maxf_t"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:gravity="fill_vertical"
+                    android:layout_marginTop="10dp" app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginBottom="10dp" app:layout_constraintBottom_toTopOf="@id/maxf_choice"
+                    android:layout_marginStart="10dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginEnd="10dp" app:layout_constraintEnd_toEndOf="parent"/>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:id="@+id/maxf_choice"
+                    android:layout_marginStart="5dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginEnd="0dp" app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:id="@+id/maxf_1"
+                        android:layout_marginTop="10dp" app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginBottom="10dp" app:layout_constraintBottom_toTopOf="@+id/maxf_2">
+
+                    <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="1100 Гц"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:id="@+id/maxf_1100"
+                            android:layout_marginStart="20dp" app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginEnd="20dp" app:layout_constraintEnd_toStartOf="@+id/maxf_1200"/>
+
+
+                    <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="1200 Гц"
+                            android:textSize="12sp"
+                            android:textColor="@color/black"
+                            android:id="@+id/maxf_1200"
+                            android:layout_marginStart="20dp" app:layout_constraintStart_toEndOf="@+id/maxf_1100"
+                            android:layout_marginEnd="20dp" app:layout_constraintEnd_toStartOf="parent"/>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:id="@+id/maxf_2"
+                        android:layout_marginTop="10dp" app:layout_constraintTop_toBottomOf="@+id/maxf_1"
+                        android:layout_marginBottom="10dp" app:layout_constraintBottom_toBottomOf="parent">
+
+                    <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="1500 Гц"
+                            android:textSize="12sp"
+                            android:textColor="@color/black"
+                            android:id="@+id/maxf_1500"
+                            android:layout_marginStart="20dp" app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginEnd="20dp" app:layout_constraintEnd_toStartOf="@+id/maxf_15000"/>
+
+                    <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="15000 Гц"
+                            android:textSize="12sp"
+                            android:textColor="@color/black"
+                            android:id="@+id/maxf_15k"
+                            android:layout_marginStart="20dp" app:layout_constraintStart_toEndOf="@+id/maxf_1500"
+                            android:layout_marginEnd="20dp" app:layout_constraintEnd_toEndOf="parent"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+
+
+

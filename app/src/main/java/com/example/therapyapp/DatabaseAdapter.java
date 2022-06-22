@@ -57,4 +57,10 @@ public class DatabaseAdapter {
             throw mSQLException;
         }
     }
+
+    public void executeSql(String sql) {
+        this.sql = sql;
+        database.execSQL(sql);
+    }
+
 }

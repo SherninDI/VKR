@@ -53,12 +53,6 @@ public class DeviceRecyclerViewAdapter extends RecyclerView.Adapter<DeviceRecycl
         return devices.size();
     }
 
-    /**
-     * Returns the icon shown on the left of the device inside the list.
-     *
-     * @param device the device for the icon to get.
-     * @return a resource drawable id for the device icon.
-     */
     private int getDeviceIcon(BluetoothDevice device) {
         if (bluetoothPairingHandler.isAlreadyPaired(device)) {
             return R.drawable.ic_bluetooth_connected_black_24dp;

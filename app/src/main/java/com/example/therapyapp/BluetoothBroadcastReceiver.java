@@ -13,7 +13,6 @@ public class BluetoothBroadcastReceiver extends BroadcastReceiver {
     private final BluetoothDiscoveryDeviceListener listener;
     private final Context context;
 
-
     public BluetoothBroadcastReceiver(Context context, BluetoothDiscoveryDeviceListener listener, BluetoothPairingHandler bluetoothPairingHandler) {
         this.listener = listener;
         this.context = context;
@@ -41,23 +40,19 @@ public class BluetoothBroadcastReceiver extends BroadcastReceiver {
 
             case BluetoothAdapter.ACTION_DISCOVERY_STARTED :
                 Log.e(TAG,"Start ");
-                // BluetoothDeviceListProvider.this.finish();
                 break;
 
             case BluetoothAdapter.ACTION_DISCOVERY_FINISHED:
                 listener.onDeviceDiscoveryEnd();
                 Log.e(TAG,"Finish ");
-                // BluetoothDeviceListProvider.this.finish();
                 break;
 
             case BluetoothAdapter.ACTION_STATE_CHANGED:
                 listener.onBluetoothStatusChanged();
-                Log.e(TAG,"state changed ");
                 break;
 
             case BluetoothDevice.ACTION_BOND_STATE_CHANGED:
                 listener.onDevicePairingEnded();
-                Log.e(TAG,"bond changed ");
                 break;
             default:
 
@@ -65,17 +60,15 @@ public class BluetoothBroadcastReceiver extends BroadcastReceiver {
         }
 
     }
-    // Called when device discovery starts.
+
     public void onDeviceDiscoveryStarted() {
         listener.onDeviceDiscoveryStarted();
     }
 
-    //Called when device discovery ends.
     public void onDeviceDiscoveryEnd() {
         listener.onDeviceDiscoveryEnd();
     }
 
-    //Called when the Bluetooth has been enabled.
     public void onBluetoothTurningOn() {
         listener.onBluetoothTurningOn();
     }

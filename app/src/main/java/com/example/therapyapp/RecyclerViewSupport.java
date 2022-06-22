@@ -6,14 +6,9 @@ import android.util.AttributeSet;
 import android.view.View;
 
 public class RecyclerViewSupport extends RecyclerView {
-    /**
-     * The view to show if the list is empty.
-     */
+
     private View emptyView;
 
-    /**
-     * Observer for list data. Sets the empty view if the list is empty.
-     */
     private RecyclerView.AdapterDataObserver emptyObserver = new RecyclerView.AdapterDataObserver() {
 
         @Override
@@ -34,30 +29,18 @@ public class RecyclerViewSupport extends RecyclerView {
 
 
 
-    /**
-     * @see RecyclerView#RecyclerView(Context)
-     */
     public RecyclerViewSupport(Context context) {
         super(context);
     }
 
-    /**
-     * @see RecyclerView#RecyclerView(Context, AttributeSet)
-     */
     public RecyclerViewSupport(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    /**
-     * @see RecyclerView#RecyclerView(Context, AttributeSet, int)
-     */
     public RecyclerViewSupport(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void setAdapter(RecyclerView.Adapter adapter) {
         super.setAdapter(adapter);
@@ -68,20 +51,10 @@ public class RecyclerViewSupport extends RecyclerView {
         emptyObserver.onChanged();
     }
 
-    /**
-     * Sets the empty view.
-     *
-     * @param emptyView the {@link #emptyView}
-     */
     public void setEmptyView(View emptyView) {
         this.emptyView = emptyView;
     }
 
-
-
-    /**
-     * Shows the progress view.
-     */
     public void startLoading() {
         // Hides the empty view.
         if (this.emptyView != null) {
@@ -90,9 +63,6 @@ public class RecyclerViewSupport extends RecyclerView {
 
     }
 
-    /**
-     * Hides the progress view.
-     */
     public void endLoading() {
 
         // Forces the view refresh.

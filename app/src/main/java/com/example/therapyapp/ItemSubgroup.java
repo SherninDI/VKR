@@ -1,7 +1,5 @@
 package com.example.therapyapp;
 
-import android.os.Parcel;
-import android.os.Parcelable;
 
 public class ItemSubgroup {
     private int subGroupId;
